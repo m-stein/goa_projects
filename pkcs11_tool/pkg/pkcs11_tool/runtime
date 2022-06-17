@@ -1,0 +1,32 @@
+<runtime ram="10M" caps="500" binary="pkcs11-tool">
+
+	<requires>
+		<usb/>
+		<timer/>
+	</requires>
+
+	<content>
+		<rom label="pkcs11-tool"/>
+		<rom label="libc.lib.so"/>
+		<rom label="libm.lib.so"/>
+		<rom label="posix.lib.so"/>
+		<rom label="vfs.lib.so"/>
+		<rom label="pcsc-lite.lib.so"/>
+	</content>
+
+	<config>
+
+		<libc stdout="/dev/log" stderr="/dev/log"/>
+
+		<vfs>
+			<dir name="dev">
+				<log/>
+			</dir>
+		</vfs>
+
+		<arg value="pkcs11_tool" />
+		<arg value="--help" />
+
+	</config>
+
+</runtime>
