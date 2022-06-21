@@ -12,6 +12,9 @@
 		<rom label="posix.lib.so"/>
 		<rom label="vfs.lib.so"/>
 		<rom label="pcsc-lite.lib.so"/>
+		<rom label="ccid.lib.so"/>
+		<rom label="libusb.lib.so"/>
+		<rom label="vfs_libusb.lib.so"/>
 	</content>
 
 	<config>
@@ -21,11 +24,15 @@
 		<vfs>
 			<dir name="dev">
 				<log/>
+				<libusb/>
 			</dir>
 		</vfs>
 
 		<arg value="pkcs11_tool" />
-		<arg value="--help" />
+		<arg value="--show-info" />
+		<arg value="-v" />
+
+		<env key="LIBUSB_DEBUG" value="1"/>
 
 	</config>
 
