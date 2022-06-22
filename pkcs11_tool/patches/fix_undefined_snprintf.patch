@@ -1,5 +1,3 @@
-diff -N -u -r '--exclude=.git' '--exclude=*~' /home/lypo/genodelabs/goa_projects/pkcs11_tool/var/contrib/src/src/tools/pkcs15-tool.c src/src/tools/pkcs15-tool.c
---- /home/lypo/genodelabs/goa_projects/pkcs11_tool/var/contrib/src/src/tools/pkcs15-tool.c	2022-06-16 12:41:00.021857624 +0200
 +++ src/src/tools/pkcs15-tool.c	2022-06-16 13:51:16.974456015 +0200
 @@ -22,8 +22,6 @@
  
