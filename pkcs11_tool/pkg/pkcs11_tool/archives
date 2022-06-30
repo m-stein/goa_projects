@@ -4,3 +4,4 @@ local/src/vfs
 local/src/pcsc-lite
 local/src/libusb
 local/src/vfs_libusb
+local/src/opensc_pkcs11
