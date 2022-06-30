@@ -1,6 +1,6 @@
-nfeske/src/posix
-nfeske/src/libc
-nfeske/src/vfs
-mstein/src/pcsc-lite
-mstein/src/libusb
-mstein/src/vfs_libusb
+local/src/posix
+local/src/libc
+local/src/vfs
+local/src/pcsc-lite
+local/src/libusb
+local/src/vfs_libusb

@@ -17,7 +17,7 @@
 		<rom label="vfs_libusb.lib.so"/>
 	</content>
 
-	<config>
+	<config ld_verbose="yes">
 
 		<libc stdout="/dev/log" stderr="/dev/log"/>
 
@@ -28,7 +28,7 @@
 			</dir>
 		</vfs>
 
-		<arg value="pkcs11_tool" />
+		<arg value="pkcs11-tool" />
 		<arg value="--show-info" />
 		<arg value="-v" />
 
