@@ -1,0 +1,65 @@
++++ src/src/libopensc/ctx.c	2022-06-24 11:32:18.713836838 +0200
+@@ -742,13 +742,17 @@
+ {
+ 	int r = 0;
+ 	const struct sc_reader_driver *drv = ctx->reader_driver;
++fprintf(stdout, "------------- %s %d %p\n", __func__, __LINE__, ctx->mutex);
+ 
+ 	sc_mutex_lock(ctx, ctx->mutex);
++fprintf(stdout, "------------- %s %d\n", __func__, __LINE__);
+ 
+ 	if (drv->ops->detect_readers != NULL)
+ 		r = drv->ops->detect_readers(ctx);
++fprintf(stdout, "------------- %s %d\n", __func__, __LINE__);
+ 
+ 	sc_mutex_unlock(ctx, ctx->mutex);
++fprintf(stdout, "------------- %s %d\n", __func__, __LINE__);
+ 
+ 	return r;
+ }
+@@ -884,7 +888,9 @@
+ 	load_card_atrs(ctx);
+ 
+ 	del_drvs(&opts);
++fprintf(stdout, "------------- %s %d\n", __func__, __LINE__);
+ 	sc_ctx_detect_readers(ctx);
++fprintf(stdout, "------------- %s %d\n", __func__, __LINE__);
+ 	*ctx_out = ctx;
+ 
+ 	return SC_SUCCESS;
+diff -N -u -r '--exclude=.git' '--exclude=*~' /home/lypo/genodelabs/goa_projects/pkcs11_tool/var/contrib/src/src/pkcs11/pkcs11-global.c src/src/pkcs11/pkcs11-global.c
+--- /home/lypo/genodelabs/goa_projects/pkcs11_tool/var/contrib/src/src/pkcs11/pkcs11-global.c	2022-06-23 15:04:31.714622539 +0200
++++ src/src/pkcs11/pkcs11-global.c	2022-06-24 10:57:09.316555690 +0200
+@@ -321,8 +321,10 @@
+ 	ctx_opts.ver        = 0;
+ 	ctx_opts.app_name   = MODULE_APP_NAME;
+ 	ctx_opts.thread_ctx = &sc_thread_ctx;
++fprintf(stdout, "------------- %s %d\n", __func__, __LINE__);
+ 
+ 	rc = sc_context_create(&context, &ctx_opts);
++fprintf(stdout, "------------- %s %d\n", __func__, __LINE__);
+ 	if (rc != SC_SUCCESS) {
+ 		rv = CKR_GENERAL_ERROR;
+ 		goto out;
+diff -N -u -r '--exclude=.git' '--exclude=*~' /home/lypo/genodelabs/goa_projects/pkcs11_tool/var/contrib/src/src/tools/pkcs11-tool.c src/src/tools/pkcs11-tool.c
+--- /home/lypo/genodelabs/goa_projects/pkcs11_tool/var/contrib/src/src/tools/pkcs11-tool.c	2022-06-23 15:04:31.726622533 +0200
++++ src/src/tools/pkcs11-tool.c	2022-06-24 10:54:37.740720327 +0200
+@@ -1074,8 +1074,10 @@
+ 	if (do_test_threads)
+ 		test_threads();
+ #endif
++				fprintf(stdout, "------------- main %d %p\n", __LINE__, c_initialize_args_ptr);
+ 
+ 	rv = p11->C_Initialize(c_initialize_args_ptr);
++				fprintf(stdout, "------------- main %d\n", __LINE__);
+ 
+ #if defined(_WIN32) || defined(HAVE_PTHREAD)
+ 	if (do_test_threads || rv != CKR_OK)
+@@ -1347,6 +1349,7 @@
+ 
+ static void show_cryptoki_info(void)
+ {
++				fprintf(stdout, "------------- %s 1\n", __func__);
+ 	CK_INFO	info;
+ 	CK_RV	rv;
+ 

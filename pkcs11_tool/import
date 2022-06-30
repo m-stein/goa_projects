@@ -7,4 +7,5 @@ REV(OpenSC) := fd6b64b91b5395022040d5d2699ecab2ceb9397a
 DIR(OpenSC) := src
 
 PATCHES := patches/dummy_mlock_munlock.patch \
-           patches/fix_undefined_snprintf.patch
+           patches/fix_undefined_snprintf.patch \
+           patches/debug.patch
