@@ -3,7 +3,7 @@ VERSION   := 0.22.0-rc2
 DOWNLOADS := OpenSC.git
 
 URL(OpenSC) := https://github.com/OpenSC/OpenSC.git
-REV(OpenSC) := fd6b64b91b5395022040d5d2699ecab2ceb9397a
+REV(OpenSC) := 0.22.0-rc2
 DIR(OpenSC) := src
 
 PATCHES := patches/dummy_mlock_munlock.patch \
