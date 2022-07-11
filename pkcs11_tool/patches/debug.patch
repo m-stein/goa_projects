@@ -27,8 +27,6 @@
  	*ctx_out = ctx;
  
  	return SC_SUCCESS;
-diff -N -u -r '--exclude=.git' '--exclude=*~' /home/lypo/genodelabs/goa_projects/pkcs11_tool/var/contrib/src/src/pkcs11/pkcs11-global.c src/src/pkcs11/pkcs11-global.c
---- /home/lypo/genodelabs/goa_projects/pkcs11_tool/var/contrib/src/src/pkcs11/pkcs11-global.c	2022-06-23 15:04:31.714622539 +0200
 +++ src/src/pkcs11/pkcs11-global.c	2022-06-24 10:57:09.316555690 +0200
 @@ -321,8 +321,10 @@
  	ctx_opts.ver        = 0;
@@ -41,8 +39,6 @@ diff -N -u -r '--exclude=.git' '--exclude=*~' /home/lypo/genodelabs/goa_projects
  	if (rc != SC_SUCCESS) {
  		rv = CKR_GENERAL_ERROR;
  		goto out;
-diff -N -u -r '--exclude=.git' '--exclude=*~' /home/lypo/genodelabs/goa_projects/pkcs11_tool/var/contrib/src/src/tools/pkcs11-tool.c src/src/tools/pkcs11-tool.c
---- /home/lypo/genodelabs/goa_projects/pkcs11_tool/var/contrib/src/src/tools/pkcs11-tool.c	2022-06-23 15:04:31.726622533 +0200
 +++ src/src/tools/pkcs11-tool.c	2022-06-24 10:54:37.740720327 +0200
 @@ -1074,8 +1074,10 @@
  	if (do_test_threads)
